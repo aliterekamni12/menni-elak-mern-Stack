@@ -140,64 +140,64 @@ exports.userDonate = async(req,res)=>{
 
 
 
-exports.donationAccepted = async(req,res)=>{
-    try{
+// exports.donationAccepted = async(req,res)=>{
+//     try{
 
-        const token = req.headers.authorization.split(" ")[1];
+//         const token = req.headers.authorization.split(" ")[1];
 
-        if(!token){
-            return res.status(400).json({message : "you are not logged in please login and try again"})
-        }
+//         if(!token){
+//             return res.status(400).json({message : "you are not logged in please login and try again"})
+//         }
 
-        let decoded;
+//         let decoded;
 
-        decoded = jwt.verify(token  , process.env.JWT_PRIVATE_KEY);
+//         decoded = jwt.verify(token  , process.env.JWT_PRIVATE_KEY);
 
-        if(!decoded){
-            return res.status(400).json({message : "token seesion has expired, please log in again"})
-        }
+//         if(!decoded){
+//             return res.status(400).json({message : "token seesion has expired, please log in again"})
+//         }
 
-        const currentUser = await User.findOne({_id: decoded.id});
+//         const currentUser = await User.findOne({_id: decoded.id});
 
-        if(!currentUser){
-            return res.status(400).json({message :  "the token holder does no longer exist"})
-        }
+//         if(!currentUser){
+//             return res.status(400).json({message :  "the token holder does no longer exist"})
+//         }
 
-        if(!currentUser.isAdmin){
-            return res.status(400).json({message  : "you are not allowed to accept the donation, only admin who can accept the donation "})
-        }
+//         if(!currentUser.isAdmin){
+//             return res.status(400).json({message  : "you are not allowed to accept the donation, only admin who can accept the donation "})
+//         }
 
-        const project = await Project.findById(req.params.projectId);
-        if(!project){
-            return res.status(400).json({message : "the project does no longer exist"});
-        }
+//         const project = await Project.findById(req.params.projectId);
+//         if(!project){
+//             return res.status(400).json({message : "the project does no longer exist"});
+//         }
 
-        const donation = await Donation.findByIdAndUpdate(req.params.donationId, {
-            isAccepted: true
-        },{new:true});
-        if(!donation){
-            return res.status(400).json({message: "the donation is invalid"})
-        }
+//         const donation = await Donation.findByIdAndUpdate(req.params.donationId, {
+//             isAccepted: true
+//         },{new:true});
+//         if(!donation){
+//             return res.status(400).json({message: "the donation is invalid"})
+//         }
 
         
 
 
-        const projectTotal = project.total + donation.donationValue;
+//         const projectTotal = project.total + donation.donationValue;
         
 
-        const editProject = await Project.findByIdAndUpdate({_id: req.params.projectId},{
-            $set:{
-            total :projectTotal 
-        }
-        },{new:true});
+//         const editProject = await Project.findByIdAndUpdate({_id: req.params.projectId},{
+//             $set:{
+//             total :projectTotal 
+//         }
+//         },{new:true});
 
 
-        res.status(200).json({message : "donation is accepted successfuly"})
+//         res.status(200).json({message : "donation is accepted successfuly"})
         
 
 
-    }catch(error){
-        console.log(error);
+//     }catch(error){
+//         console.log(error);
         
-    }
-}
+//     }
+// }

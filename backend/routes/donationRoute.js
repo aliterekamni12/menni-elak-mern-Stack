@@ -5,7 +5,7 @@ const donationControllers = require("../controllers/donationController");
 
 
 router.post("/donate/:projectId", donationControllers.userDonate);
-router.patch("/acceptDonate/:projectId/:donationId", donationControllers.donationAccepted)
+
 
 
 module.exports = router

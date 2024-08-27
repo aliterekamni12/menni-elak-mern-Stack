@@ -213,7 +213,7 @@ exports.protect = async(req,res,next)=>{
             token = req.params.authorization.split(" ")[1]
         }
 
-        if(!token.trim){
+        if(!token.trim()){
             res.status(400).json({message: "you are not logged in"})
         }
 
