@@ -63,6 +63,20 @@ exports.getAllUsers = async(req,res)=>{
     }
 }
 
+exports.getUserById = async(req,res)=>{
+    try{    
+        const users = await User.findById(req.params.userId).populate('posts').populate('donations');
+
+        res.status(200).json(users)
+
+    }catch(error){
+        console.log(error);
+        
+    }
+}
+
+
+
 exports.deleteUser = async (req,res)=>{
     try{
 
@@ -151,6 +165,44 @@ exports.donationAccepted = async(req,res)=>{
 
 
     }catch(error){
+        console.log(error);
+        
+    }
+}
+
+exports.getAllDonations = async (req,res)=>{
+    try {
+
+        const donations = await Donation.find().populate("user").populate("project");
+
+        if(donations.length === 0 ){
+            return res.status(404).json({message : "there is no donations"})
+        }
+
+        
+
+        res.status(200).json(donations);
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+exports.getDonationyById = async (req,res)=>{
+    try {
+
+        const donations = await Donation.findById(req.params.donationId).populate("user").populate("project");
+
+        if(!donations){
+            return res.status(404).json({message : "donation not found"})
+        }
+
+        
+
+        res.status(200).json(donations);
+        
+    } catch (error) {
         console.log(error);
         
     }

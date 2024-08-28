@@ -42,6 +42,10 @@ const userSchema  = new Schema({
         type:Boolean,
         default:false,
     },
+    isVerified:{
+        type: Boolean,
+        default: false
+    },
     posts: [
         {
             type: Schema.Types.ObjectId,

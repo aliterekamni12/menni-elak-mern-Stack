@@ -142,3 +142,21 @@ exports.getAllAcceptedPosts = async(req,res)=>{
         
     }
 }
+
+exports.getAcceptedPostById = async(req,res)=>{
+    try{
+
+        const posts = await Post.findOne({isAccepted: true, _id: req.params.postId });
+
+        if(posts.length === 0){
+            return res.status(200).json({message : "there are no post"})
+        }
+
+        res.status(200).json(posts)
+
+
+    }catch(error){
+        console.log(error);
+        
+    }
+}

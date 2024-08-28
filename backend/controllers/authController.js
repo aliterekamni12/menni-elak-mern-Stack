@@ -57,7 +57,9 @@ exports.signup = async(req,res)=>{
             password: hashPassword,
             role: req.body.role
 
-        })
+        });
+
+        
 
         let message = `welcome ${req.body.firstName}, your account created successfuly`;
 
@@ -69,6 +71,52 @@ exports.signup = async(req,res)=>{
         
     }
 };
+
+exports.verifyEmail = async(req,res)=>{
+    try{
+
+        
+        const url = `${req.protocol}://${req.get("host")}/api/auth/verifyEmail/${req.token}`;
+        const verifyMessage = `Please Verify Your Account Email Using The Following Url ${url}`;
+
+        try{
+
+            await sendMail({
+                email: req.body.email,
+                subject: "Menni Elak Email Verification",
+                message: verifyMessage
+            })
+
+        }catch(error){
+            console.log(error);
+            
+        }
+
+        res.status(200).json({message : "email was sent to you"})
+
+    }catch(error){
+        console.log(error);
+        
+    }
+}
+
+
+exports.setEmailVerified = async(req,res)=>{
+    try {
+
+        const user = req.user;
+
+        user.isEmail = true;
+
+        await user.save();
+
+        res.status(200).json({message : "email has been varified"})
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 
 exports.logIn = async(req,res)=>{
     try {
@@ -238,6 +286,7 @@ exports.protect = async(req,res,next)=>{
             return res.status(400).json({message: "you has been changed your password, please login again"})
         }
         req.user = currentUser;
+        req.token = token
 
         next();
 

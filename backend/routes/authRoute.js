@@ -8,5 +8,7 @@ router.patch("/updatePassword/:userId",authController.protect, authController.up
 router.patch("/forgotPassword" ,authController.protect, authController.forgotPassword);
 router.patch("/resetPassword/:token" ,  authController.resetPassword);
 
+router.post ("/verifyEmail", authController.verifyEmail)
+
 
 module.exports = router

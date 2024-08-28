@@ -11,7 +11,12 @@ router.get("/getAllNotAcceptedPost" , adminController.adminValidation, adminCont
 router.patch("/acceptPost/:postId" , adminController.adminValidation, adminController.acceptPost);
 
 router.patch("/acceptDonate/:projectId/:donationId",adminController.adminValidation, adminController.donationAccepted)
+ 
+router.get("/getUser/:userId" , adminController.adminValidation, adminController.getUserById);
 
+router.get("/getAllDonations", adminController.adminValidation, adminController.getAllDonations); 
+
+router.get("/getDonation/:donationId", adminController.adminValidation, adminController.getDonationyById);
 
 
 module.exports = router;

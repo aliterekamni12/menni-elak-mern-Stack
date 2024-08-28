@@ -21,6 +21,22 @@ exports.getAllProject = async(req,res)=>{
     }
 }
 
+exports.getProjectById = async (req,res)=>{
+    try {
+        
+        const project = await Project.findById(req.params.projectId);
+
+        if(!project){
+            return res.status(404).json({message : "project not found"})
+        }
+
+        res.status(200).json(project)
+
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 
 
 

@@ -8,4 +8,6 @@ router.get("/post" , postController.getAllAcceptedPosts)
 
 router.delete("/deletePost/:postId" ,postController.identification, postController.deletePost)
 
+
+router.get("/post/:postId", postController.getAcceptedPostById)
 module.exports = router;

@@ -1,18 +1,19 @@
 //nodemailer give us the ability to send emails easily.
 
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 exports.sendMail = async(options)=>{
 //we can add the try catch and we can't 
 
 	try{
 		const transporter = nodemailer.createTransport({
-			host : 'smtp.gmail.com',
-			port : 465 ,
+			host : process.env.EMAIL_HOST,
+			port : process.env.EMAIL_PORT ,
 			secure: true,
 			auth:{
-				user:'aliterekmani6@gmail.com',
-				pass:'hexz zkcn ieri whrx'
+				user:process.env.EMAIL_USER,
+				pass:process.env.EMAIL_PASSWORD
 			}
 			
 		});
