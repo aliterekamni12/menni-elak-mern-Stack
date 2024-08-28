@@ -105,6 +105,9 @@ exports.identification = async(req,res,next)=>{
 
 exports.deletePost = async(req,res)=>{
     try{
+        if(JSON.stringify(req.user._id) !== JSON.stringify(req.post.author)){
+            return res.status(400).json({message: "you are not able to edit this post"})
+        }
 
         const deletePost = await Post.findByIdAndDelete(req.params.postId);
 

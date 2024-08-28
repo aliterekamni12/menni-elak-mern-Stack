@@ -53,7 +53,7 @@ exports.adminValidation = async(req,res,next)=>{
 
 exports.getAllUsers = async(req,res)=>{
     try{    
-        const users = await User.find().populate('posts');
+        const users = await User.find().populate('posts').populate('donations');
 
         res.status(200).json(users)
 
@@ -134,6 +134,7 @@ exports.donationAccepted = async(req,res)=>{
 
         const projectTotal = project.total + donation.donationValue;
         
+        
 
         const editProject = await Project.findByIdAndUpdate({_id: req.params.projectId},{
             $set:{
@@ -141,6 +142,9 @@ exports.donationAccepted = async(req,res)=>{
         }
         },{new:true});
 
+        
+
+        
 
         res.status(200).json({message : "donation is accepted successfuly"})
         

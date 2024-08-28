@@ -125,8 +125,17 @@ exports.userDonate = async(req,res)=>{
 
         const donation = await Donation.create({
             donationValue : amount,
-            paymentMethod :req.body.paymentMethod
+            paymentMethod :req.body.paymentMethod,
+            user: currentUser,
+            project: project
         });
+        try{
+            currentUser.donations.push(donation);
+            await currentUser.save();
+        }catch(error){
+            console.log(error);
+            
+        }
 
         res.status(200).json({message : "the invoice sent to your email", donation});
 

@@ -6,6 +6,6 @@ router.post("/post",postController.identification,  postController.createPost)
 router.patch("/editPost/:postId", postController.identification,postController.editPost);
 router.get("/post" , postController.getAllAcceptedPosts)
 
-router.delete("/deletePost/:postId" , postController.deletePost)
+router.delete("/deletePost/:postId" ,postController.identification, postController.deletePost)
 
-module.exports = router
+module.exports = router;

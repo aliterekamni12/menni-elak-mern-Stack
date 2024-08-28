@@ -208,18 +208,15 @@ exports.resetPassword = async(req,res)=>{
 
 exports.protect = async(req,res,next)=>{
     try {
-        let token;
-        if(req.params.authorization && req.params.authorization.startsWith("Bearer")){
-            token = req.params.authorization.split(" ")[1]
-        }
+        const token = req.headers.authorization.split(" ")[1];
 
-        if(!token.trim()){
-            res.status(400).json({message: "you are not logged in"})
+        if(!token){
+            return res.status(400).json({message: "you are not logged in, please log in"})
         }
 
         let decoded
         try{
-            decoded = promisify(jwt.verify)(token, process.env.JWT_PRIVATE_KEY)
+            decoded = jwt.verify(token, process.env.JWT_PRIVATE_KEY)
 
         }catch(error){
             if(error.name === "JsonWebToken"){
@@ -231,9 +228,10 @@ exports.protect = async(req,res,next)=>{
             
         }
 
-        const currentUser = await User.findOne(decoded.id);
+        const currentUser =await  User.findById({_id:decoded.id});
+
         if(!currentUser){
-            return res.status(400).json({message: "the token holder, does no longer exist"})
+            return res.status(400).json({message : "token holder does no longer exist"})
         }
 
         if(currentUser.passwordChangeAfterIssuingToken(decoded.iat)){
