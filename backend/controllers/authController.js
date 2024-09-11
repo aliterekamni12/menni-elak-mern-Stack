@@ -79,10 +79,12 @@ exports.verifyEmail = async(req,res)=>{
         const url = `${req.protocol}://${req.get("host")}/api/auth/verifyEmail/${req.token}`;
         const verifyMessage = `Please Verify Your Account Email Using The Following Url ${url}`;
 
+        const user = req.user
+
         try{
 
             await sendMail({
-                email: req.body.email,
+                email: user.email,
                 subject: "Menni Elak Email Verification",
                 message: verifyMessage
             })
@@ -104,13 +106,38 @@ exports.verifyEmail = async(req,res)=>{
 exports.setEmailVerified = async(req,res)=>{
     try {
 
-        const user = req.user;
+        const token = req.params.token;
 
-        user.isEmail = true;
+        if(!token){
+            return res.status(400).json({message: "you are not logged in, please log in"})
+        }
 
-        await user.save();
+        let decoded
+        try{
+            decoded = jwt.verify(token, process.env.JWT_PRIVATE_KEY)
 
-        res.status(200).json({message : "email has been varified"})
+        }catch(error){
+            if(error.name === "JsonWebToken"){
+                return res.status(400).json({message: "invalid token, please login again"})
+            }
+            else if(error.name === "TokenExpiredError"){
+                return res.status(400).json({message: "your session was expired, please login again"})
+            }
+            
+        }
+
+        const currentUser =await  User.findById({_id:decoded.id});
+
+        if(!currentUser){
+            return res.status(400).json({message : "token holder does no longer exist"})
+        }
+
+        currentUser.isVerified = true;
+
+        currentUser.save();
+
+        res.status(200).json({message : "you account verified successfuly"})
+        
         
     } catch (error) {
         console.log(error);
