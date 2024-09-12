@@ -1,0 +1,49 @@
+.header-navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #c4e7d4;
+    height: 10vh;
+}
+.header-navbar:hover{
+    border-radius: 50px;
+    margin-top: 10px;
+}
+.menu{
+    display: flex;
+    align-items: center;
+}
+.menu ul{
+    display: flex;
+    gap: 30px;
+}
+.menu ul li{
+    list-style: none;
+    text-decoration: none;
+    
+}
+.link{
+    text-decoration: none;
+    color: black;
+}
+.profile img{
+    width: 100px;
+    border-radius: 20%;
+}
+.login_signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.login_signup button{
+    width: 100px;
+    height: 40px;
+    border-radius: 80px;
+    background-color: #04052E;
+    color: white;
+    border: 0px solid ;
+}
+.login_signup button:hover{
+    background-color:#B9C0DA  ;
+}
