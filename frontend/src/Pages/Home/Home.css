@@ -1,0 +1,68 @@
+.home{
+    color: white;
+}
+
+.videos video{
+    width: 330px;
+    height: 420px;
+}
+.project-card{
+    
+    margin: 20px;
+    padding: 20px;
+    border-radius: 30px;
+    border: 0.9px solid white;
+    color: white;
+}
+.project-card img{
+    border-radius: 40px;
+}
+
+.project-card:hover{
+    
+    background-color: rgba(255, 255, 255, 0.068);
+}
+
+.projects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px
+} 
+.link{
+    text-decoration: none;
+}
+
+.projects-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.videos{
+    display: flex;
+    justify-content: center;
+    
+    align-items: center;
+    margin-top: 150px;
+}
+.videoPlayer{
+    margin: 50px;
+    
+}
+.Top-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Top-home p{
+    margin: 50px;
+}
+.Top-home h1{
+    margin-top: 40px;
+}
+.Top-home h2{
+    margin-top: 50px;
+}

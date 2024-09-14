@@ -75,6 +75,7 @@ exports.createProject = async(req,res)=>{
             description: req.body.description,
             goal:req.body.goal,
             total: req.body.total,
+            image: req.body.image,
             category: req.body.category
         })
 

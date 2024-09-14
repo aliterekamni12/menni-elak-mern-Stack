@@ -4,6 +4,7 @@
     align-items: center;
     background-color: #c4e7d4;
     height: 10vh;
+    width: 100%;
 }
 .header-navbar:hover{
     border-radius: 50px;
@@ -46,4 +47,14 @@
 }
 .login_signup button:hover{
     background-color:#B9C0DA  ;
+    cursor: pointer;
+}
+.logo{
+    
+    padding-top: 5px;
+}
+
+.logo img{
+    width: 90px;
+    border-radius: 60px;
 }

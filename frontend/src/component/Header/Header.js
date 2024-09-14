@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../Header/Header.css"
+import logo from "./Logo.png"
 
 const Header = () => {
 
@@ -11,11 +12,11 @@ const Header = () => {
   return (
     <div className='header-navbar'>
       <div className='logo'> 
-        <img></img>
+        <Link to='/'><img  src={logo} /></Link>
       </div>
       <div className='menu'>
         <ul>
-            <li><Link to='/Home' className="link">Home</Link> </li>
+            <li><Link to='/' className="link">Home</Link> </li>
             <li><Link to='/Project' className="link">Projects</Link> </li>
             <li><Link to='/AboutUs' className="link">About Us</Link> </li>
             {login? <li><Link to='/Posts' className="link">Posts</Link> </li>: <></> } 
@@ -25,8 +26,8 @@ const Header = () => {
         {login?
          <img/> :
             <div className='login_signup'> 
-                <Link><button>Login</button></Link>
-                <Link><button>Sign Up</button></Link>
+                <Link to='/login'><button>Login</button></Link>
+                <Link to='/signup'><button>Sign Up</button></Link>
             </div>}
       </div>
     </div>

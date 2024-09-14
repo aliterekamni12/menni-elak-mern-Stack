@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const crypto = require("crypto")
+const crypto = require("crypto");
+const { stringify } = require("querystring");
 
 const Schema = mongoose.Schema;
 
@@ -18,13 +19,18 @@ const projectSchema = new Schema({
     goal:{
         type:Number,
         default: 0,
+        required: true,
         trim: true
     },
     total:{
         type:Number,
-        
+        required:true,
         minLength: 0,
         trim:true
+    },
+    image:{
+        type: String,
+        required: true
     },
     isAchieved:{
         type:Boolean,
