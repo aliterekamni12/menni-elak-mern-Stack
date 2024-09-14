@@ -12,9 +12,10 @@ import ProjectIdContext from './context';
 
 function App() {
 
-  const [projectId, setProjectId] = useState("66e49c99a505cbd81392e178")
+  const [projectId, setProjectId] = useState("66e49c99a505cbd81392e178");
+  const [login, isLogin] = useState(false)
   
-  const ProjectIdValue = {projectId, setProjectId};
+  const ProjectIdValue = {projectId, setProjectId,login, isLogin};
 
   return (
     <>

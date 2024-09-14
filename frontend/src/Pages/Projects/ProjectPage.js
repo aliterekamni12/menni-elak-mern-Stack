@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./ProjectPage.css";
 import React, {useState, useEffect, useContext} from 'react'
-import axios from "axios"
-import Project from "../Home/Project";
+
 import ProjectIdContext from "../../context";
 
 const ProjectPage = () => {
@@ -31,11 +30,29 @@ const ProjectPage = () => {
     
 
   return (
-    <div>
-       {data && data.map((e)=>{
-        <Project datas={e}/>
-       })}
-    </div>
+    <div className='project-page-card'>
+        <h1>Title: {data.name}</h1>
+        <img src={data.image} />
+        
+        <p><strong>Description:</strong> {data.description}</p>
+        
+        {data.isAchieved? 
+        <>
+            <p>Thanks For All for the donations. we achieved our goal that is to reached {data.goal}</p>
+            <Link to='/'><button>Back To Home</button></Link>
+        </>:
+        
+        <>
+        <p><strong> The Goal:</strong> {data.goal}$</p>
+        <p><strong> The Total donations :</strong>{data.total}$</p>
+        {!projectId.login? <Link to='/login'><button>Login</button></Link> : <Link to={`/donate/${projectId.projectId}`}><button>Donate</button></Link>}
+        
+        </>
+        
+        }
+
+
+      </div>
   )
 }
 
