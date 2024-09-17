@@ -7,6 +7,8 @@ import Home from './Pages/Home/Home';
 import ProjectPage from './Pages/Projects/ProjectPage';
 import {  useState } from 'react';
 import ProjectIdContext from './context';
+import Donation from './Pages/Donation/Donation';
+import ThanksPage from './Pages/Thanks/ThanksPage';
 
 
 
@@ -25,6 +27,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path={`/project/${projectId}`}  element={<ProjectPage/>} />
+          <Route path={`/donate/${projectId}`} element={<Donation/>}/>
+          <Route path='/ThanksPage' element={<ThanksPage/>}/>
           <Route path='/login' />
         </Routes>
         <Footer/>

@@ -45,7 +45,7 @@ const ProjectPage = () => {
         <>
         <p><strong> The Goal:</strong> {data.goal}$</p>
         <p><strong> The Total donations :</strong>{data.total}$</p>
-        {!projectId.login? <Link to='/login'><button>Login</button></Link> : <Link to={`/donate/${projectId.projectId}`}><button>Donate</button></Link>}
+        {projectId.login? <Link to='/login'><button>Login</button></Link> : <Link to={`/donate/${projectId.projectId}`}><button>Donate</button></Link>}
         
         </>
         

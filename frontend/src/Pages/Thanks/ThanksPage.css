@@ -1,0 +1,23 @@
+.ThanksPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 250px;
+    margin-bottom: 250px;
+}
+.ThanksPage button{
+    width: 100px;
+    height: 60px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+.ThanksPage button:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.096);
+}
