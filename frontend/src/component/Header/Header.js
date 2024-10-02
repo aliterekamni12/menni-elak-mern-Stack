@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../Header/Header.css"
 import logo from "./Logo.png"
+import ProjectIdContext from '../../context';
 
 const Header = () => {
 
-    const [login, isLogin] = useState(false);
-
+    const {login} = useContext(ProjectIdContext)
+    
  
   return (
     <div className='header-navbar'>
@@ -24,7 +25,7 @@ const Header = () => {
       </div>
       <div className='profile'>
         {login?
-         <img/> :
+         <></> :
             <div className='login_signup'> 
                 <Link to='/login'><button>Login</button></Link>
                 <Link to='/signup'><button>Sign Up</button></Link>

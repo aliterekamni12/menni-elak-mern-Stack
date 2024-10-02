@@ -52,6 +52,9 @@ exports.userDonate = async(req,res)=>{
         }
 
         const amount = req.body.donation;
+        if(amount < 1 || amount >(project.goal-project.total)){
+            res.status(400).json({message: `you can donate from 1$ to ${project.goal}$`})
+        }
         
         let donationPayment;
         if(req.body.paymentMethod === "Western Union" ){
@@ -111,16 +114,7 @@ exports.userDonate = async(req,res)=>{
         Menni Elak Team.
 `
 
-        try {
-            await sendMail({
-                email: currentUser.email,
-                subject:"Your Donation Invoice from Menni Elak Team",
-                message: message
-            })
-        } catch (error) {
-            console.error(error);
-            
-        }
+        
 
 
         const donation = await Donation.create({
@@ -137,6 +131,16 @@ exports.userDonate = async(req,res)=>{
             
         }
 
+        try {
+                await sendMail({
+                    email: currentUser.email,
+                    subject:"Your Donation Invoice from Menni Elak Team",
+                    message: message
+                })
+            } catch (error) {
+                console.error(error);
+
+            }
         res.status(200).json({message : "the invoice sent to your email", donation});
 
 

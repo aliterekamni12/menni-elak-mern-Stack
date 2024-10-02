@@ -8,7 +8,8 @@ const ProjectPage = () => {
 
     const [data, setData] = useState({});
 
-    const projectId = useContext(ProjectIdContext)
+    const projectId = useContext(ProjectIdContext);
+    
     
     const fetchData = async()=>{
         const response = await fetch(`http://localhost:4000/api/admin/project/${projectId.projectId}`);
@@ -26,7 +27,6 @@ const ProjectPage = () => {
         
     },[])
 
-    console.log(data);
     
 
   return (
@@ -45,7 +45,7 @@ const ProjectPage = () => {
         <>
         <p><strong> The Goal:</strong> {data.goal}$</p>
         <p><strong> The Total donations :</strong>{data.total}$</p>
-        {projectId.login? <Link to='/login'><button>Login</button></Link> : <Link to={`/donate/${projectId.projectId}`}><button>Donate</button></Link>}
+        {!projectId.login? <Link to='/login'><button>Login</button></Link> : <Link to={`/donate/${projectId.projectId}`}><button>Donate</button></Link>}
         
         </>
         

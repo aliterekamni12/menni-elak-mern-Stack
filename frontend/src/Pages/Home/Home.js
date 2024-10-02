@@ -28,7 +28,8 @@ const Home = () => {
     },[]);
 
     const {setProjectId} = useContext(ProjectIdContext)
-    console.log(data)
+   
+    
   return (
     <div className='home'>
       <div className='Top-home'>

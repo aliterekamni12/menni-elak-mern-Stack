@@ -9,6 +9,7 @@ const donationSchema = new Schema ({
         type:Number,
         required: true,
         trim:true,
+        min: 1
     },
     paymentMethod: {
         type: String, 
