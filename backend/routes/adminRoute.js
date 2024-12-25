@@ -12,7 +12,7 @@ router.patch("/acceptPost/:postId" , adminController.adminValidation, adminContr
 
 router.patch("/acceptDonate/:projectId/:donationId",adminController.adminValidation, adminController.donationAccepted)
  
-router.get("/getUser/:userId" , adminController.adminValidation, adminController.getUserById);
+router.get("/getUser/:userId" ,  adminController.getUserById);
 
 router.get("/getAllDonations", adminController.adminValidation, adminController.getAllDonations); 
 

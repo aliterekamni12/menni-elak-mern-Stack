@@ -1,13 +1,26 @@
 .login{
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 15vh;
     margin-bottom: 15vh;
+    
 }
-
+.link{
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+}
+.box{
+    background-color: #c4e7d4;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10%;
+}
 
 .login h1 {
     margin-bottom: 50px;
@@ -31,8 +44,11 @@
     margin-top: 20px;
     margin-bottom: 30px;
     background-color: transparent;
-    color: white;
+    color: rgb(0, 0, 0);
     border: 1px solid white;
+}
+#submit:hover{
+    background-color: #c4e7d47a;
 }
 
 .login form p{

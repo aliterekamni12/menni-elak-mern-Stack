@@ -30,6 +30,7 @@ const Login = () => {
     }
 
     
+    
 
     const handleSubmit =async (e)=>{
         e.preventDefault();
@@ -39,6 +40,7 @@ const Login = () => {
           setResponse(json);
           if(res.ok){
           setUserData(json)
+          
             isLogin(true)
           }
 
@@ -54,7 +56,7 @@ const Login = () => {
 
   return (
     <div className='login'>
-      
+      <div className='box'>
         <h1>Login</h1>
         <form>
             <label htmlFor='username'>username: </label>
@@ -66,9 +68,9 @@ const Login = () => {
             {response.length !== 0 ? <p>{response.message} </p> : <></>}
         </form>
        
-        
-        <Link>Forgot Your Password?</Link>
-      
+      </div>  
+        <Link className='link' to='/Forgetpassword'>Forgot Your Password?</Link>
+        <Link className='link' to='/signup'>Create an account</Link>
     </div>
   )
 }

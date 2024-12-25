@@ -131,7 +131,7 @@ exports.getAllAcceptedPosts = async(req,res)=>{
         const posts = await Post.find({isAccepted:true});
 
         if(posts.length === 0){
-            return res.status(200).json({message : "there are no post"})
+            return res.status(201).json({message : "there are no post" , status: 201})
         }
 
         res.status(200).json(posts)

@@ -11,6 +11,10 @@ import Donation from './Pages/Donation/Donation';
 import ThanksPage from './Pages/Thanks/ThanksPage';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import Projects from './Pages/GeneralProjectsPage/Projects';
+import Fpassword from './Pages/ForgetPass/Fpassword';
+import AboutUs from './Pages/AboutUs/AboutUs';
+import Posts from './Pages/Posts/Posts';
 
 
 
@@ -35,6 +39,11 @@ function App() {
           <Route path='/ThanksPage' element={<ThanksPage/>}/>
           <Route path='/login' element={<Login/>} />
           <Route path='/signup' element={<Signup/>}/>
+          <Route path='/projects' element={<Projects/>}/>
+          <Route path='/Forgetpassword' element={<Fpassword/>}/>
+          <Route path='/AboutUs' element={<AboutUs/>} />
+          {login ? <Route path='/Posts' element={<Posts/>}/>: <Route/>}
+          
         </Routes>
         <Footer/>
       </BrowserRouter>

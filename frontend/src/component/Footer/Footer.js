@@ -8,9 +8,8 @@ const Footer = () => {
         <p>&copy; {new Date().getFullYear()} Team Menni Elak. All rights reserved.</p>
         <nav>
           <ul>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/AboutUs">About Us</a></li>
+            
             <li><a href="https://www.instagram.com/team_menni_ellak/">instagram</a></li>
           </ul>
         </nav>

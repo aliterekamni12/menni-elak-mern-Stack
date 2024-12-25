@@ -1,0 +1,24 @@
+.posts-container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.post-cart {
+    background-color: #c4e7d4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    margin-top:50px;
+
+    width: 500px;
+    margin-bottom: 50px;
+}
+
+.post-cart div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:black;
+}
