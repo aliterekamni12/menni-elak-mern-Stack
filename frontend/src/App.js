@@ -18,6 +18,7 @@ import Posts from './Pages/Posts/Posts';
 import CreatePost from './Pages/CreatePost/CreatePost';
 import RedirectingPage from './Pages/CreatePost/RedirectingPage';
 import Dashboard from './Pages/DashBoard/Dashboard';
+import SearchPage from './Pages/DashBoard/SearchPage/SearchPage';
 
 
 
@@ -50,7 +51,8 @@ function App() {
           {login ? <Route path='/CreatePost' element={<CreatePost/>}/>: <Route/>}
           {login? <Route path='/CreatedSuccessfuly' element={<RedirectingPage/>}/> : <Route/>}
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path='/Dashboard' element={<Dashboard/>} /> : <></>}
-          
+          {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path='/SearchUser' element={<SearchPage/>} /> : <></>}
+
         </Routes>
         <Footer/>
       </BrowserRouter>

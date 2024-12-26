@@ -18,5 +18,8 @@ router.get("/getAllDonations", adminController.adminValidation, adminController.
 
 router.get("/getDonation/:donationId", adminController.adminValidation, adminController.getDonationyById);
 
+router.post("/getUserByUsername" , adminController.adminValidation , adminController.getUserByUsername);
+
+
 
 module.exports = router;

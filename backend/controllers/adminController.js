@@ -75,6 +75,23 @@ exports.getUserById = async(req,res)=>{
     }
 }
 
+exports.getUserByUsername = async(req,res)=>{
+    try {
+        
+        const user = await User.findOne({username:req.body.username})
+
+        if(!user){
+            return res.status(404).json({message: "no user found" , status : 404})
+        }
+
+        res.status(200).json(user)
+
+    } catch (error) {
+        console.log(error);
+        res.status(404).json({message: error.message})
+    }
+}
+
 
 
 exports.deleteUser = async (req,res)=>{
