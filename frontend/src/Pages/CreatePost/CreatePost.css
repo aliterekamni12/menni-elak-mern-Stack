@@ -1,0 +1,36 @@
+.create-post-container{
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+.redirecting-Page{
+    color: white;
+}
+.box-4{
+    background-color: #c4e7d4;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%;
+    height: 300px;
+}
+.submit{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border: 1px solid white;
+}
+.submit:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+}

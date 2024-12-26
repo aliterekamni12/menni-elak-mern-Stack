@@ -1,0 +1,15 @@
+.everyUser{
+    color: white;
+    
+}
+.user{
+    display: flex;
+    
+}
+
+.user p{
+    margin-left: 30px;
+}
+.user h3{
+    margin-left: 30px;
+}

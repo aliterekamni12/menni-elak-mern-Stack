@@ -22,3 +22,22 @@
     align-items: center;
     color:black;
 }
+.createPost{
+    margin-top: 30px;
+}
+
+.createPost button{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.createPost button:hover{
+    cursor: pointer;
+    background-color: #c4e7d43b;
+}

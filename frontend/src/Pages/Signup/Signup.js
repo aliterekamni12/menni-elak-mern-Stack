@@ -99,7 +99,7 @@ const Signup = () => {
               
             </select>
 
-            <input id='submit' type='submit' onClick={handleSubmit}/>
+            <input className='submit' type='submit' onClick={handleSubmit}/>
             {response.length !== 0 ? <p>{response.message} </p> : <></>}
         </form>
        

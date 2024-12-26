@@ -37,19 +37,7 @@
     margin-bottom: 20px;
     
 }
-#submit{
-    width: 100px;
-    height: 40px;
-    border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    background-color: transparent;
-    color: rgb(0, 0, 0);
-    border: 1px solid white;
-}
-#submit:hover{
-    background-color: #c4e7d47a;
-}
+
 
 .login form p{
     color: red;

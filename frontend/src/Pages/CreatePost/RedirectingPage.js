@@ -1,9 +1,20 @@
-import React from 'react'
-
+import React,{useEffect} from 'react'
+import "./CreatePost.css"
+import { useNavigate } from 'react-router-dom'
 const RedirectingPage = () => {
+
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    setTimeout(() => navigate("/Posts"), 10000);
+  }, [])
   return (
-    <div>
-      
+
+    
+
+    <div className='redirecting-Page'>
+      <h1>Please wait until the administrator accepts your Post</h1>
     </div>
   )
 }

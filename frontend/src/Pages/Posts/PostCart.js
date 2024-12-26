@@ -10,7 +10,7 @@ const PostCart = ({datas})=>{
       .then(async(res)=>{
         const json = await res.json();
         setData(json)
-        console.log(json);
+        
         
       })
     }
@@ -18,10 +18,10 @@ const PostCart = ({datas})=>{
   },[])
   return (
     <div>
-      <p>{data?.firstName} {data?.lastName}</p>
-      <h3>{datas.title}</h3>
-      <p>{datas.description}</p>
-      <h5>{datas.amount}</h5>
+      <p>User: {data?.firstName} {data?.lastName}</p>
+      <h3>Title: {datas.title}</h3>
+      <p>description: {datas.description}</p>
+      <h5>Amount: {datas.amount}</h5>
       <p>{data?.email}</p>
     </div>
   )

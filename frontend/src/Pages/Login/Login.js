@@ -40,6 +40,9 @@ const Login = () => {
           setResponse(json);
           if(res.ok){
           setUserData(json)
+          console.log(json);
+
+          
           
             isLogin(true)
           }
@@ -64,7 +67,7 @@ const Login = () => {
             <label htmlFor='password'>password: </label>
             <input name='password' id='password' type='password' onChange={(e)=>{setPassword(e.target.value)}} />
             
-            <input id='submit' type='submit' onClick={handleSubmit}/>
+            <input className='submit' type='submit' onClick={handleSubmit}/>
             {response.length !== 0 ? <p>{response.message} </p> : <></>}
         </form>
        

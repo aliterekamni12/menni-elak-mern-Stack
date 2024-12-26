@@ -22,17 +22,19 @@ const Posts = () => {
             .catch((err)=>{console.log(err)})
         }
         fetchData()
+        setTimeout(() => fetchData(), 60000);
     },[])
 
   return (
     
     <div className='posts-container'>
+      <div className='createPost'>
+          <label htmlFor='create'>Create Post: </label>
+          <Link to='/CreatePost'><button>Post</button></Link>
+        </div>
       {response && response.status === 201 ? <p>{response.message}</p>:
        <>
-        <div className='createPost'>
-          <label htmlFor='create'>Create Post: </label>
-          <button>Post</button>
-        </div>
+        
         <div className='posts'>
         {Array.isArray(response) && response?.map((datas) =>(
           <div className='post-cart' key={datas._id}>

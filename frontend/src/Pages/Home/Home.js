@@ -23,15 +23,21 @@ const Home = () => {
         
 
       }
+      
       fetchData()
       
     },[]);
 
-    const {setProjectId} = useContext(ProjectIdContext)
+    
+    
+
+    const {setProjectId} = useContext(ProjectIdContext);
+    
    
     
   return (
     <div className='home'>
+     
       <div className='Top-home'>
         <h1>Welcome to Team Menni Elak</h1>
         <h2>Empower Change. Make a Difference.</h2>
