@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import ProjectIdContext from '../../../context';
 import UserCart from '../UserCart/UserCart';
+import { Link } from 'react-router-dom';
 
 const SearchPage = () => {
 
     const [username, setUsername] = useState();
-    const {userData} = useContext(ProjectIdContext);
+    const {userData ,setUserId} = useContext(ProjectIdContext);
 
     const[response, setResponse] = useState()
 
@@ -47,8 +48,10 @@ const SearchPage = () => {
                 <h3>Full Name: {response?.firstName} {response?.lastName}</h3>
                 <p>Email: {response?.email}</p>
                 <p>Username: {response?.username}</p>
+                <p>User Role : {response?.role}</p>
                 {response?.isAdmin ? <p>Admin: Yes</p> : <p>Admin: No</p>}
                 {response?.isVerified ? <p>Admin: Yes</p> : <p>Admin: No</p>}
+                <Link onClick={()=>{setUserId(response?._id)}}  to={`/user/${response?._id}`}><button>Edit</button></Link>
             </div>
       </div>}
       

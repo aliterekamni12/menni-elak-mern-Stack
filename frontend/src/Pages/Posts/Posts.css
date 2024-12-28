@@ -41,3 +41,14 @@
     cursor: pointer;
     background-color: #c4e7d43b;
 }
+.post-cart-1 {
+    background-color: #04052E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    margin-top:50px;
+    color: white;
+    width: 500px;
+    margin-bottom: 50px;
+}
