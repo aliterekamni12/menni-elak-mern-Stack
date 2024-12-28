@@ -50,7 +50,7 @@ const SearchPage = () => {
                 <p>Username: {response?.username}</p>
                 <p>User Role : {response?.role}</p>
                 {response?.isAdmin ? <p>Admin: Yes</p> : <p>Admin: No</p>}
-                {response?.isVerified ? <p>Admin: Yes</p> : <p>Admin: No</p>}
+                {response?.isVerified ? <p>Verified: Yes</p> : <p>Verified: No</p>}
                 <Link onClick={()=>{setUserId(response?._id)}}  to={`/user/${response?._id}`}><button>Edit</button></Link>
             </div>
       </div>}

@@ -107,3 +107,26 @@
     margin-top: 20px;
     border-radius: 29px;
 }
+.Accept{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Accept button{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+.Accept button:hover{
+    cursor: pointer;
+    background-color: #c4e7d43b;
+    
+}
