@@ -190,7 +190,7 @@ exports.donationAccepted = async(req,res)=>{
 exports.getAllDonations = async (req,res)=>{
     try {
 
-        const donations = await Donation.find().populate("user").populate("project");
+        const donations = await Donation.find();
 
         if(donations.length === 0 ){
             return res.status(404).json({message : "there is no donations"})
@@ -209,7 +209,7 @@ exports.getAllDonations = async (req,res)=>{
 exports.getDonationyById = async (req,res)=>{
     try {
 
-        const donations = await Donation.findById(req.params.donationId).populate("user").populate("project");
+        const donations = await Donation.findById(req.params.donationId);
 
         if(!donations){
             return res.status(404).json({message : "donation not found"})

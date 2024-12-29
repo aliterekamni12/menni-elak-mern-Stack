@@ -18,12 +18,12 @@ const DonationCart = ({datas}) => {
     }).then((res)=>{
         console.log(res)
         
-    }).catch((err)=>{console.log(err)})
+    }).catch((err)=>{console.log(err)}  )
   }
   return (
     <div>
         <h3>id: {datas._id}</h3>
-        <p>donation value: {datas.donationValue}</p>
+        <p>donation value: {datas.donationValue} $</p>
         <p>Project Id:  {datas.project}</p>
         <div className='Accept'>
           {datas.isAccepted ? <p>Accepted: Yes</p> : <p>Accepted: No</p>}

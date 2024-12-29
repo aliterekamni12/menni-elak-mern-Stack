@@ -103,6 +103,21 @@ exports.identification = async(req,res,next)=>{
     }
 }
 
+exports.getUserHisPosts = async(req,res)=>{
+    try{
+
+        const posts = await Post.find({author: req.user._id});
+        if(!posts){
+            return res.status(204).json({message: "You dont have any post"})
+        }
+
+        res.status(200).json(posts)
+
+    }catch(error){
+        console.log(error);
+        
+    }
+}
 
 exports.deletePost = async(req,res)=>{
     try{

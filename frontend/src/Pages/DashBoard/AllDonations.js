@@ -3,6 +3,7 @@ import ProjectIdContext from '../../context';
 import UserCart from './UserCart/UserCart';
 import "./Dashboard.css"
 import { Link } from 'react-router-dom';
+import DonationCart from '../Donation/DonationCart';
 
 const AllDonations = () => {
 
@@ -33,10 +34,16 @@ const AllDonations = () => {
       
     },[])
 
+    
+
   return (
     <div className='AllDonations'>
+      <h1>All Donations</h1>
+      <Link to='/SearchDonation'><button className='search-btn'>Search</button></Link>
       {donationsData && donationsData.map((datas)=>(
-        <div>{datas.donationValue}</div>
+        <div className='everyDonation'> 
+          <DonationCart datas={datas} />
+        </div>
       ))}
     </div>
   )

@@ -22,6 +22,7 @@ import SearchPage from './Pages/DashBoard/SearchPage/SearchPage';
 import AllUser from './Pages/DashBoard/AllUser';
 import User from './Pages/DashBoard/User';
 import AllDonations from './Pages/DashBoard/AllDonations';
+import DonationSearchPage from './Pages/DashBoard/SearchPage/DonationSearchPage';
 
 
 
@@ -65,6 +66,7 @@ function App() {
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path='/AllUser' element={<AllUser/>} /> : <></>}
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/user/${userId}`} element={<User/>} /> : <></>}
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/AllDonations`} element={<AllDonations/>} /> : <></>}
+          {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/SearchDonation`} element={<DonationSearchPage/>} /> : <></>}
 
         </Routes>
         <Footer/>
