@@ -4,10 +4,9 @@ import UserCart from './UserCart/UserCart';
 import "./Dashboard.css"
 import { Link } from 'react-router-dom';
 
+const AllDonations = () => {
 
-const Dashboard = () => {
-
-  const {userData, setAllDonationData} = useContext(ProjectIdContext);
+    const {userData} = useContext(ProjectIdContext)
   const [donationsData , setDonationsData] = useState()
 
     useEffect(()=>{
@@ -24,7 +23,7 @@ const Dashboard = () => {
         }).then(async(res)=>{
           const json = await res.json();
           setDonationsData(json);
-          setAllDonationData(json)
+          
         }).catch((err)=>{console.log(err)})
         }
         fectDonationData()
@@ -35,17 +34,12 @@ const Dashboard = () => {
     },[])
 
   return (
-    <div className='Dahboard-Container'>
-        <div className='AllUser-dashboard '>
-                <Link to='/AllUser'><button>All Users List</button></Link>
-            
-        </div>
-        <div className='donation-dashboard'>
-          <h3>Now We Have {donationsData?.length} donations</h3>
-          <Link to='/AllDonations'><button>All Donations List</button></Link>
-        </div>
+    <div className='AllDonations'>
+      {donationsData && donationsData.map((datas)=>(
+        <div>{datas.donationValue}</div>
+      ))}
     </div>
   )
 }
 
-export default Dashboard
+export default AllDonations

@@ -107,13 +107,6 @@
     margin-top: 20px;
     border-radius: 29px;
 }
-.Accept{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 .Accept button{
     width: 100px;
     height: 40px;
@@ -129,4 +122,15 @@
     cursor: pointer;
     background-color: #c4e7d43b;
     
+}
+
+.donation-dashboard{
+    background-color: #c4e7d4;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    height: 200px;
 }

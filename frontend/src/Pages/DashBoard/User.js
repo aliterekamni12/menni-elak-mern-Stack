@@ -1,33 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ProjectIdContext from '../../context';
-import PostCart from '../Posts/PostCart';
-import "./User.css"
+import UserPostsFD from '../Posts/UserPostsFD';
+import DonationCart from '../Donation/DonationCart';
+
 
 
 const User = () => {
 
     const [response , setResponse] = useState();
 
-    const {userId, userData} = useContext(ProjectIdContext);
-
-    const [postId , setPostId] = useState("");
+    const {userId, userData, setPostId, setProjectIdToAcc, setDonationId} = useContext(ProjectIdContext);
 
     
-
-    const handleAccept = async(datas)=>{
+    
+    
         
-        const accept = await fetch(`http://localhost:4000/api/admin/acceptPost/${postId}`,{
-            method : 'PATCH',
-            headers :{
-                'Authorization': `Bearer ${userData.token}`, 
-                "Content-Type" : 'application/json'    
-            },
-            
-        }).then((res)=>{
-            console.log(res)
-            
-        }).catch((err)=>{console.log(err)})
-    }
+    
+        
+  
 
     const options={
         method : 'GET',
@@ -40,7 +30,9 @@ const User = () => {
     
 
     useEffect(()=>{
-        const fetchData = async()=>{
+
+        const interval = setInterval(()=>{
+            const fetchData = async()=>{
             const response = await fetch(`http://localhost:4000/api/admin/getUser/${userId}`,options)
             .then(async(res)=>{
                 const json = await res.json();
@@ -49,9 +41,12 @@ const User = () => {
             })
         }
         fetchData()
-        handleAccept()
+        }, 2000)
+        return () => clearInterval(interval);
         
-    },[postId])
+        
+        
+    },[])
 
   return (
     <div>
@@ -66,27 +61,21 @@ const User = () => {
                 {response?.isVerified ? <p>Verified: Yes</p> : <p>Verified: No</p>}
                 {response?.posts?.length !== 0 ?<h3>Posts:</h3>:<h3>No Post Yet</h3>}
                 { response?.posts?.map((datas)=>(
-                    <>
+                    
                     
                     <div className='post-cart-1' key={datas._id}>
-                        <h3>Title: {datas?.title}</h3>
-                        <p>description: {datas?.description}</p>
-                        <div className='Accept'>
-                            {datas?.isAccepted ? <p>Accepted: Yes</p> : <p>Accepted: No</p>}
-                            {datas?.isAccepted ? <></> : <button onClick={()=>{handleAccept(); setPostId(datas?._id)}} >Accept</button>}
-                        </div>
-                        <h5>Amount: {datas?.amount}</h5>
-                    </div></>
+                        <UserPostsFD datas={datas} />
+                        
+                        
+                    </div>
                 ))}
                 {response?.donations?.length !== 0 ?<h3>Donations:</h3>:<h3>No Donation Yet</h3>}
                 { response?.donations?.map((datas)=>(
                     <>
                     
                     <div className='post-cart-1' key={datas._id}>
-                        <h3>id: {datas?._id}</h3>
-                        <p>donation value: {datas?.donationValue}</p>
-                        {datas.isAccepted ? <p>Accepted: Yes</p> : <p>Accepted: No</p>}
-                        <p>Project Id:  {datas.project}</p>
+                        <DonationCart datas={datas}/>
+                        
                     </div></>
                 ))}
                 

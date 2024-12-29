@@ -21,6 +21,7 @@ import Dashboard from './Pages/DashBoard/Dashboard';
 import SearchPage from './Pages/DashBoard/SearchPage/SearchPage';
 import AllUser from './Pages/DashBoard/AllUser';
 import User from './Pages/DashBoard/User';
+import AllDonations from './Pages/DashBoard/AllDonations';
 
 
 
@@ -30,9 +31,16 @@ function App() {
   const [login, isLogin] = useState(false)
   const[userData, setUserData] = useState();
   const [admin, isadmin] = useState(false)
-  const[ userId, setUserId] = useState("")
+  const[ userId, setUserId] = useState("");
   
-  const ProjectIdValue = {projectId, setProjectId,login, isLogin, userData, setUserData, admin, isadmin, userId, setUserId}; 
+  
+  const ProjectIdValue = {projectId, setProjectId,
+    login, isLogin,
+     userData, setUserData,
+      admin, isadmin,
+       userId, setUserId,
+       
+      }; 
   
   return (
     <>
@@ -56,6 +64,7 @@ function App() {
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path='/SearchUser' element={<SearchPage/>} /> : <></>}
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path='/AllUser' element={<AllUser/>} /> : <></>}
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/user/${userId}`} element={<User/>} /> : <></>}
+          {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/AllDonations`} element={<AllDonations/>} /> : <></>}
 
         </Routes>
         <Footer/>
