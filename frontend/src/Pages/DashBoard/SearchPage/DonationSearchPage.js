@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import ProjectIdContext from '../../../context';
 import DonationCart from '../../Donation/DonationCart';
+import "../Dashboard.css"
 
 const DonationSearchPage = () => {
 
@@ -27,6 +28,15 @@ const DonationSearchPage = () => {
         }).catch((err)=>{console.log(err)})
     }
 
+    const donationData = {
+      _id :response?._id,
+      donationValue : response?.donationValue,
+      project : response?.project,
+      paymentMethod : response?.paymentMethod,
+      isAccepted : response?.isAccepted,
+      createdAt: response?.createdAt
+    }
+
   return (
     <>
     <div className='donation-search'>
@@ -34,16 +44,14 @@ const DonationSearchPage = () => {
       <input name='donationId' id='donationId' type='text' onChange={((e)=>{setDonId(e.target.value)})}/>
       <input type='submit' className='submit' onClick={handleSubmit}/> 
     </div>
-    <div>
-        {response?._id}
+    <div className='donation-search-Cart'>
+        <div className='donation-search-Cart-container'>
+        {response && donationData.length !== 0?
+          <DonationCart datas={donationData} />:<></>}
+        </div>
+        
     </div>
-        {Array.isArray(response) && response?.map((datas)=>(
-            <div className='donation'>
-                <DonationCart datas={datas} />
-                </div>
-
-            
-        ))}
+        
     
     </>
   )

@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 
-  const {userData, setAllDonationData} = useContext(ProjectIdContext);
+  const {userData, setAllDonationData,  setPostData} = useContext(ProjectIdContext);
   const [donationsData , setDonationsData] = useState()
-
+  const [postsData , setPostsData] = useState()
     useEffect(()=>{
 
       const interval = setInterval(()=>{
@@ -27,6 +27,24 @@ const Dashboard = () => {
           setAllDonationData(json)
         }).catch((err)=>{console.log(err)})
         }
+
+
+        const fetchPosts = async()=>{
+          const Posts = await fetch('http://localhost:4000/api/admin/getAllNotAcceptedPost',{
+            method : 'GET',
+            headers :{
+                'Authorization': `Bearer ${userData.token}`, 
+                "Content-Type" : 'application/json'    
+            },
+          }).then(async(res)=>{
+            const json = await res.json();
+            setPostsData(json)
+            setPostData(json)
+          }).catch(err=>console.log(err)
+          )
+        }
+
+        fetchPosts()
         fectDonationData()
       },2000)
 
@@ -43,6 +61,11 @@ const Dashboard = () => {
         <div className='donation-dashboard'>
           <h3>Now We Have {donationsData?.length} donations</h3>
           <Link to='/AllDonations'><button>All Donations List</button></Link>
+        </div>
+        <div className='donation-dashboard'>
+          <h3>Now we have {postsData?.length} posts not accepted </h3>
+          <button>hello</button>
+
         </div>
     </div>
   )

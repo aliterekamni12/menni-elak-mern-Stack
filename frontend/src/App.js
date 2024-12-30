@@ -23,6 +23,7 @@ import AllUser from './Pages/DashBoard/AllUser';
 import User from './Pages/DashBoard/User';
 import AllDonations from './Pages/DashBoard/AllDonations';
 import DonationSearchPage from './Pages/DashBoard/SearchPage/DonationSearchPage';
+import AllPosts from './Pages/DashBoard/AllPosts';
 
 
 
@@ -33,14 +34,14 @@ function App() {
   const[userData, setUserData] = useState();
   const [admin, isadmin] = useState(false)
   const[ userId, setUserId] = useState("");
-  
+  const [postData , setPostData] = useState()
   
   const ProjectIdValue = {projectId, setProjectId,
     login, isLogin,
      userData, setUserData,
       admin, isadmin,
        userId, setUserId,
-       
+       postData , setPostData
       }; 
   
   return (
@@ -67,6 +68,7 @@ function App() {
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/user/${userId}`} element={<User/>} /> : <></>}
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/AllDonations`} element={<AllDonations/>} /> : <></>}
           {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/SearchDonation`} element={<DonationSearchPage/>} /> : <></>}
+          {userData && userData.data && userData.data.user && userData.data.user.isAdmin? <Route path={`/AllNotAcceptedPost`} element={<AllPosts/>} /> : <></>}
 
         </Routes>
         <Footer/>

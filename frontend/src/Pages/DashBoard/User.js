@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import ProjectIdContext from '../../context';
 import UserPostsFD from '../Posts/UserPostsFD';
 import DonationCart from '../Donation/DonationCart';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -13,10 +14,24 @@ const User = () => {
 
     
     
-    
+    const deletUser = async()=>{
+        const deleteuser  = await fetch(`http://localhost:4000/api/admin/deleteUser/${response?._id}`,{
+           method : 'Delete',
+            headers :{
+                'Authorization': `Bearer ${userData.token}`, 
+                "Content-Type" : 'application/json'    
+            }, 
+        }).then((res)=>{
+            console.log(res);
+            if(res.ok){
+                navigate("/AllUser")
+            }
+        }).catch((err)=>{console.log(err);
+        })
+    }
         
     
-        
+        const navigate = useNavigate()
   
 
     const options={
@@ -37,7 +52,7 @@ const User = () => {
             .then(async(res)=>{
                 const json = await res.json();
                 setResponse(json)
-                console.log(json.posts)
+                console.log(json)
             })
         }
         fetchData()
@@ -78,7 +93,7 @@ const User = () => {
                         
                     </div></>
                 ))}
-                
+                <button onClick={deletUser}>Delete User</button>
             </div>
       </div>}
     </div>

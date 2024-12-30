@@ -183,3 +183,40 @@
     background-color:#B9C0DA  ;
     cursor: pointer;
 }
+
+.everyDonation button{
+    width: 100px;
+    height: 40px;
+    border-radius: 80px;
+    background-color: #c4e7d4;
+    color: white;
+    border: 0px solid ;
+}
+.everyDonation button:hover{
+    background-color:#B9C0DA  ;
+    cursor: pointer;
+}
+
+.donation-search-Cart{
+    background-color: #c4e7d4;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    height: 400px;
+}
+
+.donation-search-Cart-container{
+    background-color: #04052E;
+    margin-top: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:300px;
+    width: 500px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
