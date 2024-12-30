@@ -8,6 +8,10 @@ const UserPostsFD = ({datas}) => {
   const [postId , setPostId] = useState("")
 
   const {userData} = useContext(ProjectIdContext)
+  const[acceptMsg , setAcceptMsg] = useState("");
+  const[deleteMsg , setDeleteMsg] = useState();
+  const [ postIdToDlt, setPostIdToDlt] = useState()
+
 
   const handleAccept = async(datas)=>{
             
@@ -20,10 +24,27 @@ const UserPostsFD = ({datas}) => {
         
     }).then((res)=>{
         console.log(res)
+        if(res.ok){
+          setAcceptMsg("Done")
+        }
         
     }).catch((err)=>{console.log(err)})
 }
 
+
+  const deletePost = async()=>{
+    const deletepost  = await fetch( `http://localhost:4000/api/admin/deletePost/${postIdToDlt}`,{
+      method : 'Delete',
+      headers :{
+          'Authorization': `Bearer ${userData.token}`, 
+          "Content-Type" : 'application/json'    
+      },
+    }).then((res)=>{
+      if(res.ok){
+        setDeleteMsg("Deleted")
+      }
+    }).catch(err=>console.log(err))
+  }
 
     
     return (
@@ -39,7 +60,9 @@ const UserPostsFD = ({datas}) => {
           {datas.isAccepted ? <></> : <button onClick={()=>{ setPostId(datas._id); handleAccept();} } >Accept</button>}
                             
         </div>
-        
+        <p>{acceptMsg}</p>
+        <button onClick={()=>{setPostIdToDlt(datas._id); deletePost()}}>Delete</button>
+        <p>{deleteMsg} </p>
       </div>
     )
 }

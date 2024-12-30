@@ -6,6 +6,8 @@ router.get("/getAllUsers" , adminController.adminValidation , adminController.ge
 
 router.delete("/deleteUser/:userId" , adminController.adminValidation , adminController.deleteUser);
 
+router.delete("/deletePost/:postId" , adminController.adminValidation, adminController.deletePost)
+
 router.get("/getAllNotAcceptedPost" , adminController.adminValidation, adminController.getAllNotAcceptedPost);
 
 router.patch("/acceptPost/:postId" , adminController.adminValidation, adminController.acceptPost);

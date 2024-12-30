@@ -124,6 +124,21 @@ exports.getAllNotAcceptedPost = async(req,res)=>{
     }
 }
 
+exports.deletePost = async(req,res)=>{
+    try {
+        const post = await Post.findByIdAndDelete(req.params.postId)
+        if(!post){
+            return res.status(404).json({message: "no post founded"})
+        }
+
+        res.status(200).json(post)
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
 exports.acceptPost = async(req,res)=>{
     try {
         

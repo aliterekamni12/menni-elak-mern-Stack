@@ -64,8 +64,8 @@ const Dashboard = () => {
         </div>
         <div className='donation-dashboard'>
           <h3>Now we have {postsData?.length} posts not accepted </h3>
-          <button>hello</button>
-
+          
+          <Link to='/AllNotAcceptedPost'><button> Not Accepted Posts</button></Link>
         </div>
     </div>
   )

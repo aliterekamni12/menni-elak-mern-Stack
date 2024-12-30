@@ -220,3 +220,25 @@
     border-radius: 20px;
     margin-bottom: 20px;
 }
+
+.everyPost{
+    display: flex;
+    justify-self: center;
+    flex-direction: column;
+}
+
+.everyPost button{
+    width: 100px;
+    height: 40px;
+    border-radius: 80px;
+    background-color: #04052E;
+    color: white;
+    border: 0px solid ;
+}
+.everyPost button:hover{
+    background-color:#B9C0DA  ;
+    cursor: pointer;
+}
+.everyPost h1{
+    color: white;
+}
