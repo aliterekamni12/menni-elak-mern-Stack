@@ -7,13 +7,18 @@ const projectRoute = require("./routes/projectRoute");
 const donationRoute = require("./routes/donationRoute");
 const postRoute = require("./routes/postRoute");
 const adminRoute = require("./routes/adminRoute")
-
+const path = require('path');
 const app = express();
 
 var cors = require('cors')
 
-app.use(cors())
+app.use(cors());
 
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
