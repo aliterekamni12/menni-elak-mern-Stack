@@ -7,12 +7,12 @@
     "start": "node index.js ",
     "build": "cd ../frontend && npm install && npm run build && cd ../backend && node copy-build.js"
   },
-  "keywords": [], 
+  "keywords": [],
   "proxy": "http://localhost:4000",
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
