@@ -21,8 +21,10 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 
-app.get('*', (req, res) => {
+app.get('*', (req, res,next) => {
     res.sendFile(path.join(__dirname, 'build/index.html'));
+    res.setHeader('Last-Modified', (new Date()).toUTCString());
+  next(); 
 });
 
 app.get('/test', (req, res) => {
