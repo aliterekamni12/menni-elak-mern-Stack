@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js ",
-    "build": "cd ../frontend && npm install && npm run build && cp -r ../frontend/build ./"
+    "build": "cd ../frontend && npm install && npm run build && cd ../backend && node copy-build.js"
   },
-  "keywords": [],
+  "keywords": [], 
+  "proxy": "http://localhost:4000",
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -17,6 +18,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "fs-extra": "^11.3.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.3",
     "nodemailer": "^6.9.14",
