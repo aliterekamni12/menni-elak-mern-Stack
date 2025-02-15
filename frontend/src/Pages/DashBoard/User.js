@@ -15,7 +15,7 @@ const User = () => {
     
     
     const deletUser = async()=>{
-        const deleteuser  = await fetch(`http://localhost:4000/api/admin/deleteUser/${response?._id}`,{
+        const deleteuser  = await fetch(`https://menni-elak-mern-stack.onrender.com/api/admin/deleteUser/${response?._id}`,{
            method : 'Delete',
             headers :{
                 'Authorization': `Bearer ${userData.token}`, 
@@ -48,7 +48,7 @@ const User = () => {
 
         const interval = setInterval(()=>{
             const fetchData = async()=>{
-            const response = await fetch(`http://localhost:4000/api/admin/getUser/${userId}`,options)
+            const response = await fetch(`https://menni-elak-mern-stack.onrender.com/api/admin/getUser/${userId}`,options)
             .then(async(res)=>{
                 const json = await res.json();
                 setResponse(json)

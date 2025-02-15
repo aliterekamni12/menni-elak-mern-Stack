@@ -8,7 +8,7 @@ const Projects = () => {
 
     useEffect(()=>{
       const fetchData= async()=>{
-        const response = await fetch('http://localhost:4000/api/admin/projects');
+        const response = await fetch('https://menni-elak-mern-stack.onrender.com/api/admin/projects');
         const json = await response.json();
         
         if(response.ok){

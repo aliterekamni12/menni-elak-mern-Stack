@@ -20,7 +20,7 @@ const AllUser = () => {
     
     useEffect(()=>{
         const fetchData = async()=>{
-            const response = await fetch("http://localhost:4000/api/admin/getAllUsers" , options)
+            const response = await fetch("https://menni-elak-mern-stack.onrender.com/api/admin/getAllUsers" , options)
             .then(async(res)=>{
                 const json = await res.json()
                 setData(json)

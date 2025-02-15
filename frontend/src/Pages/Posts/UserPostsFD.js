@@ -15,7 +15,7 @@ const UserPostsFD = ({datas}) => {
 
   const handleAccept = async(datas)=>{
             
-    const accept = await fetch(`http://localhost:4000/api/admin/acceptPost/${postId}`,{
+    const accept = await fetch(`https://menni-elak-mern-stack.onrender.com/api/admin/acceptPost/${postId}`,{
         method : 'PATCH',
         headers :{
             'Authorization': `Bearer ${userData.token}`, 
@@ -33,7 +33,7 @@ const UserPostsFD = ({datas}) => {
 
 
   const deletePost = async()=>{
-    const deletepost  = await fetch( `http://localhost:4000/api/admin/deletePost/${postIdToDlt}`,{
+    const deletepost  = await fetch( `https://menni-elak-mern-stack.onrender.com/api/admin/deletePost/${postIdToDlt}`,{
       method : 'Delete',
       headers :{
           'Authorization': `Bearer ${userData.token}`, 

@@ -12,7 +12,7 @@ const ProjectPage = () => {
     
     
     const fetchData = async()=>{
-        const response = await fetch(`http://localhost:4000/api/admin/project/${projectId.projectId}`);
+        const response = await fetch(`https://menni-elak-mern-stack.onrender.com/api/admin/project/${projectId.projectId}`);
         const json = await response.json();
         //console.log(json);
         if(response.ok){

@@ -10,7 +10,7 @@ const DonationCart = ({datas}) => {
     const {userData} = useContext(ProjectIdContext)
 
   const handleAcceptDonation = async()=>{
-    const acceptDonation = await fetch(`http://localhost:4000/api/admin/acceptDonate/${projectIdToAcc}/${donationId}`,{
+    const acceptDonation = await fetch(`https://menni-elak-mern-stack.onrender.com/api/admin/acceptDonate/${projectIdToAcc}/${donationId}`,{
         method : 'PATCH',
         headers :{
             'Authorization': `Bearer ${userData.token}`, 

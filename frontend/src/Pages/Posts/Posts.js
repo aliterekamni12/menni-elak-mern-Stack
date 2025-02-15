@@ -12,7 +12,7 @@ const Posts = () => {
 
     useEffect(()=>{
         const fetchData = async()=>{
-            const response = await fetch("http://localhost:4000/api/post")
+            const response = await fetch("https://menni-elak-mern-stack.onrender.com/api/post")
             .then(async(res)=>{
                 
                 const json = await res.json()

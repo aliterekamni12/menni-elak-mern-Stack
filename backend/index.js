@@ -11,9 +11,14 @@ const path = require("path")
 const app = express();
 
 
-var cors = require('cors')
+var cors = require('cors');
 
-app.use(cors());
+const corsOptions = {
+    origin: "https://menni-elak-mern-stack.onrender.com/",
+    Credentials: true
+}
+
+app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname, 'build')));
 
 

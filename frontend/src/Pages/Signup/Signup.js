@@ -34,7 +34,7 @@ const Signup = () => {
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
-    const response = await fetch("http://localhost:4000/api/auth/signup" , options)
+    const response = await fetch("https://menni-elak-mern-stack.onrender.com/api/auth/signup" , options)
     .then(async(res)=>{
       const json = await res.json(res)
       setResponse(json)

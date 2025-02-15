@@ -18,7 +18,7 @@ const Fpassword = () => {
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
-         await fetch("http://localhost:4000/api/auth/forgotPassword" , options)
+         await fetch("https://menni-elak-mern-stack.onrender.com/api/auth/forgotPassword" , options)
         .then(async(res)=>{
           const json = await res.json();
           setResponse(json)

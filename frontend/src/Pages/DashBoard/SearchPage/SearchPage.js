@@ -25,7 +25,7 @@ const SearchPage = () => {
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
-        const response = await fetch("http://localhost:4000/api/admin/getUserByUsername",options)
+        const response = await fetch("https://menni-elak-mern-stack.onrender.com/api/admin/getUserByUsername",options)
         .then(async(res)=>{
             const json = await res.json();
             setResponse(json)

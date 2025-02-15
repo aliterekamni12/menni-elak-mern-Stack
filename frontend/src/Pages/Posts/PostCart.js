@@ -6,7 +6,7 @@ const PostCart = ({datas})=>{
 
   useEffect(()=>{
     const getUser = async()=>{
-      const response = await fetch(`http://localhost:4000/api/admin/getUser/${datas.author}`)
+      const response = await fetch(`https://menni-elak-mern-stack.onrender.com/api/admin/getUser/${datas.author}`)
       .then(async(res)=>{
         const json = await res.json();
         setData(json)

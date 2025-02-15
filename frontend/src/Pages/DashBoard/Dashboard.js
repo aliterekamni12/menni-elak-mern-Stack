@@ -15,7 +15,7 @@ const Dashboard = () => {
       const interval = setInterval(()=>{
 
         const fectDonationData = async()=>{
-        const donations = await fetch('http://localhost:4000/api/admin/getAllDonations',{
+        const donations = await fetch('https://menni-elak-mern-stack.onrender.com/api/admin/getAllDonations',{
           method : 'GET',
           headers :{
               'Authorization': `Bearer ${userData.token}`, 
@@ -30,7 +30,7 @@ const Dashboard = () => {
 
 
         const fetchPosts = async()=>{
-          const Posts = await fetch('http://localhost:4000/api/admin/getAllNotAcceptedPost',{
+          const Posts = await fetch('https://menni-elak-mern-stack.onrender.com/api/admin/getAllNotAcceptedPost',{
             method : 'GET',
             headers :{
                 'Authorization': `Bearer ${userData.token}`, 

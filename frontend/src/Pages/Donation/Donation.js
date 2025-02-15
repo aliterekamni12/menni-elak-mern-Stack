@@ -38,7 +38,7 @@ const Donation = () => {
 
     const handleSubmit= async(e)=>{
         e.preventDefault();
-        const response = await fetch(`http://localhost:4000/api/donate/${projectId.projectId}` , options)
+        const response = await fetch(`https://menni-elak-mern-stack.onrender.com/api/donate/${projectId.projectId}` , options)
         .then(async(res)=>{
           const json = await res.json()
           setResponse(json)
